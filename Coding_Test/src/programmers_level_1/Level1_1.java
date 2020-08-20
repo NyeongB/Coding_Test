@@ -1,8 +1,7 @@
-/*
- * Date : 2020.08.20
- * Title : 소수 찾기
- * Author : Choi Cheol Nyeong
- * */
+// Date : 2020.08.20
+// Title : 소수 찾기
+// Author : Choi Cheol Nyeong
+ 
 package programmers_level_1;
 
 public class Level1_1
