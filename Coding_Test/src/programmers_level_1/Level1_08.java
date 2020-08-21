@@ -1,10 +1,10 @@
-// Date : 2020.08.20
+// Date : 2020.08.21
 // Title : 시저 암호
 // Author : Choi Cheol Nyeong
  
 package programmers_level_1;
 
-public class Level1_8
+public class Level1_08
 {
 	public static void main(String[] args)
 	{

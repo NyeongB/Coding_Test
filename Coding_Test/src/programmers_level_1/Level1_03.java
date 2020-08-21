@@ -4,7 +4,7 @@
  
 package programmers_level_1;
 
-public class Level1_3
+public class Level1_03
 {
 	public static void main(String[] args)
 	{

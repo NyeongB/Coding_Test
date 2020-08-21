@@ -7,7 +7,7 @@ package programmers_level_1;
 import java.util.Arrays;
 import java.util.Collections;
 
-public class Level1_6
+public class Level1_06
 {
 	public static void main(String[] args)
 	{
