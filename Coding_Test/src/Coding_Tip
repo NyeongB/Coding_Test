@@ -1,0 +1,16 @@
+코딩 테스트 유용한 팁
+사용언어 : JAVA
+
+- 문자열 자르기
+str.split("");
+
+- 문자열에서 특정인덱스 문자 가져오기
+str.charAt(index);
+
+- 문자열 전체 대문자, 소문자로 바꾸기
+str.toLowerCase();
+str.toUpperCase();
+
+- 문자 대소문자 판별
+Character.isLowerCase('a');	→ true
+Character.isUpperCase('b'); → false
