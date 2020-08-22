@@ -1,6 +1,11 @@
 코딩 테스트 유용한 팁
 사용언어 : JAVA
 
+-- 문자형으로된 숫자 int형으로 변환
+char ch ='9';
+
+int num = ch - '0';
+
 - 문자열 자르기
 str.split("");
 
@@ -34,4 +39,8 @@ int [][] arr = new int[2][4];	// 전부 0으로 초기화된다.
 행의 갯수 : arr.length;
 열의 갯수 : arr[0].length;
 
+-- indexOf안에 String 형 통채로 들어가는것도 가능 
+String [] str = {"119","97674223","01195524421"};
 		
+System.out.println(str[2].indexOf(str[0]));		
+
