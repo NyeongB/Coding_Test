@@ -44,3 +44,7 @@ String [] str = {"119","97674223","01195524421"};
 		
 System.out.println(str[2].indexOf(str[0]));		
 
+-- 내림차순 정렬 
+Integer[] numbers = {5,2,8,10,6,9};
+
+Arrays.sort(numbers, Collections.reverseOrder());
