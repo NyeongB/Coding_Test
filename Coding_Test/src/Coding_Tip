@@ -52,3 +52,35 @@ Arrays.sort(numbers, Collections.reverseOrder());
 -- 향상된 for문
 for(int n : arr)
 			System.out.println(n);
+			
+---------------------------------------------------------
+// 해시맵
+public static void main(String[] args)
+	{
+		int [] arr = new int[10];
+		
+		for(int i=0; i<arr.length; i++)
+			arr[i] = i+1;
+		
+		for(int n : arr)
+			System.out.println(n);
+		
+		HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+		
+		for(int n : arr)
+		{
+			hm.put(n,1);
+		}
+		
+		for(int n : arr)
+		{
+			if(hm.get(n)!=null)
+				System.out.println("Key : "+n+" Value :" + hm.get(n));
+		}
+		
+		for(int n : hm.keySet()) // 키값들 반환함
+		{
+			System.out.println(n);
+		}
+	}
+---------------------------------------------------------
