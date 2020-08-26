@@ -48,3 +48,7 @@ System.out.println(str[2].indexOf(str[0]));
 Integer[] numbers = {5,2,8,10,6,9};
 
 Arrays.sort(numbers, Collections.reverseOrder());
+
+-- 향상된 for문
+for(int n : arr)
+			System.out.println(n);
