@@ -7,7 +7,7 @@ package programmers_level_2;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Level2_1
+public class Level2_01
 {
 	public static void main(String[] args)
 	{

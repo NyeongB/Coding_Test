@@ -7,7 +7,7 @@ package programmers_level_2;
 
 import java.util.Arrays;
 
-public class Level2_5
+public class Level2_05
 {
 	public static void main(String[] args)
 	{
