@@ -1,16 +1,16 @@
-// Date : 2020.08.27
+// Date : 2020.09.01
 // Title : 
 // Author : Choi Cheol Nyeong
 // Language : Java
-// classification : Sotring
- 
+// classification : Sorting
+
 package BOJ_Sorting;
 
-public class Default
+
+public class BOJ_Sorting_00
 {
 	public static void main(String[] args)
 	{
-		
+
 	}
-	
 }
