@@ -27,22 +27,13 @@ public class BOJ_Greedy_06
 			alpa[i] = 0;
 		
 		
-		for (int i = 0; i < n; i++)
+		while(n-- >0)
 		{
-
-			char[] array = sc.next().toCharArray();
-
-			int pos = (int) Math.pow(10, array.length - 1);
-
-			for (int j = 0; j < array.length; j++)
+			String str = sc.next();
+			for(int i=0; i<str.length(); i++)
 			{
-
-				alpa[array[j] - 'A'] += pos;
-
-				pos /= 10;
-
+				alpa[str.charAt(i)-'A'] += (int)Math.pow(10, str.length()-1-i);
 			}
-
 		}
 
 		int count = 9;
