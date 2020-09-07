@@ -86,3 +86,11 @@ public static void main(String[] args)
 ---------------------------------------------------------
 
 String [] str = s.split("\\+"); 문자를 기준으로 자를려면 \\이 붙어있어야한다.
+
+-----------------------------------------------------------
+
+Tree Traveling
+
+Preorder : root - left - right
+Inorder : left - root - right
+Postorder : left - right - root
