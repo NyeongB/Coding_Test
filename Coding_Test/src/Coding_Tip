@@ -111,3 +111,10 @@ String hexString = Integer.toHexString(i);       //16진수
 System.out.println(binaryString); //1111111
 System.out.println(octalString);  //177
 System.out.println(hexString);    //7f
+
+---------------------------------------------------------
+
+자리수 끼워 맞추기
+ str1 = String.format("%" + 5 + "s", "101");
+		 
+ System.out.println(str1.replaceAll(" ", "0")); // 00101
