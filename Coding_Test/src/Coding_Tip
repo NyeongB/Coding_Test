@@ -83,6 +83,10 @@ public static void main(String[] args)
 			System.out.println(n);
 		}
 	}
+	
+	// hm.containsKey(element) 포함되어있는 여부 확인 
+	// hm.remove(element) 해당 키에 맞는 밸류 제거 
+	
 ---------------------------------------------------------
 
 String [] str = s.split("\\+"); 문자를 기준으로 자를려면 \\이 붙어있어야한다.

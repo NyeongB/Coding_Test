@@ -44,19 +44,21 @@ public class BOJ_HashMap_03
 			hmB.put(num,num);
 		}
 		
-		
+		int count = 0;
 		// A 제거 
 		for(int i=0; i<arrB.length; i++)
 		{
-			hmA.remove(arrB[i]);
+			if(!hmA.containsKey(arrB[i]))
+				count++;
 		}
 		
 		// B 제거
 		for(int i=0; i<arrA.length; i++)
 		{
-			hmB.remove(arrA[i]);
+			if(!hmB.containsKey(arrA[i]))
+				count++;
 		}
 		
-		System.out.println(hmA.size()+hmB.size());
+		System.out.println(count);
 	}
 }
