@@ -126,4 +126,29 @@ System.out.println(hexString);    //7f
  ----------------------------------------------------------
  Integer.bitCount(n); 비트 카운트 
  
+ ---------------------------------------------------------
+ 거꾸로 출력 
+StringBuffer sb = new StringBuffer();
+		
+		
+		sb.append("abcdef");
+		
+		String temp = sb.reverse().toString();
+		
+		System.out.println(temp);
+--------------------------------------------------------		
+진법 변환 
+		int n = 125;
+		String answer = "";
+		while(n>0)
+		{
+			int r = n%2;
+			n = n/2;
+			
+			
+			answer = r + answer;
+			
+		}
+		
+		System.out.println(answer);
  
