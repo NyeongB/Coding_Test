@@ -1,4 +1,4 @@
-// Date : 2020.08.26
+// Date : 2020.08.26 , 20.09.13
 // Title : 완주하지 못한 선수
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -19,6 +19,38 @@ public class Level1_32
 	
 }
 
+class Solution1_32 {
+    public String solution(String[] participant, String[] completion) {
+        String answer = "";
+        
+        HashMap<String, Integer> hm = new HashMap<>();
+        
+        for(int i=0; i<participant.length; i++)
+        {
+            if(hm.get(participant[i])!=null)
+            {
+                hm.put(participant[i],hm.get(participant[i])+1);
+            }
+            else
+                hm.put(participant[i],1);
+        }
+        
+        for(String str : completion)
+        {
+            if(hm.get(str)!=null)
+                hm.put(str,hm.get(str)-1);
+        }
+        
+        for(String str : hm.keySet())
+        {
+            if(hm.get(str)==1)
+                answer = str;
+        }
+        
+        return answer;
+    }
+}
+/*
 class Solution1_32 {
     public String solution(String[] participant, String[] completion) {
         String answer = "";
@@ -57,4 +89,4 @@ class Solution1_32 {
         
         return answer;
     }
-}
+}*/
