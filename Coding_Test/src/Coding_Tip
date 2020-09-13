@@ -12,6 +12,11 @@ str.split("");
 - 문자열에서 특정인덱스 문자 가져오기
 str.charAt(index);
 
+- 서브스트링 
+str.substring(1);	// 인덱스 1부분부터 끝까지
+
+str.substring(2,2); // 인덱스 2부터 문자 2개 
+
 - 문자열 전체 대문자, 소문자로 바꾸기
 str.toLowerCase();
 str.toUpperCase();
