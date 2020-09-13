@@ -156,4 +156,25 @@ StringBuffer sb = new StringBuffer();
 		}
 		
 		System.out.println(answer);
+		
+-------------------------------------------------------------
+우선 순위 큐 
+
+힙 정렬이 되서 들어가짐 
+순서를 바꿔서 선언할수도있음 
+Queue<Integer> q = new PriorityQueue<Integer>(Collections.reverseOrder());
+		
+		q.offer(5);
+		q.offer(2);
+		q.offer(3);
+		q.offer(1);
+		q.offer(2);
+		q.offer(3);
+		q.offer(5);
+		q.offer(1);
+		
+		int len = q.size();
+		for(int i=0; i<len; i++)
+			System.out.println(q.poll());
+----------------------------------------------------------------------					
  
