@@ -9,7 +9,7 @@ package programmers_level_2;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Levle2_13
+public class Level2_13
 {
 	public static void main(String[] args)
 	{
