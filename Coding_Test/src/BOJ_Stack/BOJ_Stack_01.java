@@ -1,4 +1,4 @@
-// Date : 2020.08.30
+// Date : 2020.08.30, 20.09.25
 // Title : 쇠막대기
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -17,34 +17,34 @@ public class BOJ_Stack_01
 	{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String str = br.readLine();
-		//System.out.println(str);
 		
-		Stack<Character> s = new Stack<>();
+		Stack<Character> st = new Stack<Character>();
 		
 		int answer = 0;
+		
 		for(int i=0; i<str.length(); i++)
 		{
-			if(str.charAt(i)=='(')
-			{
-				s.push('(');
-			}
-			else if(str.charAt(i)==')')
+			char temp = str.charAt(i);
+			if(temp=='(')
+				st.push('(');
+			else
 			{
 				if(str.charAt(i-1)=='(')
 				{
-					s.pop();
-					answer +=s.size();
+					st.pop();
+					answer += st.size();
 					
 				}
 				else
 				{
+					st.pop();
 					answer++;
-					s.pop();
 				}
 			}
 		}
 		
 		System.out.println(answer);
+		
 		
 	}
 	
