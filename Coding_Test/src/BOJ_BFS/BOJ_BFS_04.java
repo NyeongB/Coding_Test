@@ -89,18 +89,20 @@ public class BOJ_BFS_04
 		}
 	}
 	
+	static class XY
+	{
+		int x;
+		int y;
+		
+		public XY(int x, int y)
+		{
+			this.x = x;
+			this.y = y;
+		}
+	}
+
+	
 }
 
-class XY
-{
-	int x;
-	int y;
-	
-	public XY(int x, int y)
-	{
-		this.x = x;
-		this.y = y;
-	}
-}
 
 // 기본 BFS 문제 8방향으로 이동범위를 체크해주는게 관건이다.
