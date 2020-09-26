@@ -1,4 +1,4 @@
-// Date : 2020.09.11
+// Date : 2020.09.11 , 20.09.26
 // Title : 같은 숫자는 싫어
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -22,6 +22,32 @@ public class Level1_38
 }
 
 class Solution1_38 {
+	
+	  public int[] solution(int []arr) {
+	        
+	        int temp = arr[0];
+	        ArrayList<Integer> list = new ArrayList<Integer>();
+	        list.add(temp);
+	        for(int i=1; i<arr.length; i++)
+	        {
+	            if(arr[i]!=temp)
+	            {
+	                temp = arr[i];
+	                list.add(temp);
+	            }
+	        }
+	        
+	        int [] answer = new int[list.size()];
+	        
+	        for(int i=0; i<answer.length; i++)
+	            answer[i] = list.get(i);
+	            
+	        
+	        
+
+	        return answer;
+	    }
+	  /*
     public int[] solution(int []arr) {
         
         LinkedList<Integer> q = new LinkedList<>();
@@ -49,4 +75,5 @@ class Solution1_38 {
         
         return answer;
     }
+    */
 }
