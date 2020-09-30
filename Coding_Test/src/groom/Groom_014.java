@@ -23,6 +23,7 @@ public class Groom_014
 				n++;
 		}
 		
+		
 		System.out.println(count);
 		
 	}
