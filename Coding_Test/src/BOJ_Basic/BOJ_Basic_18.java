@@ -18,6 +18,39 @@ public class BOJ_Basic_18
 		
 		
 		int N = Integer.parseInt(br.readLine());
+		int F = Integer.parseInt(br.readLine());	
+		
+		// N = 12345
+		
+		N /= 100; // N = 123
+		N *= 100; // N = 12300
+		
+		while(N%F != 0 )
+		{
+			N++;
+		}
+		
+		N %= 100;
+		
+		if(N<10)
+			System.out.println("0"+N);
+		else
+			System.out.println(N);
+		
+	}
+}
+
+// 완전탐색으로 접근했다 00 ~ 99 사이에 나눠지는게 있으면 정답으로 출력한다. 
+// 문제에서 가장 작은 값이라 했음으로 00 부터 탐색한다.
+//** 더욱 간결한 풀이가 있어 참고했다. 시간은 둘다 92ms
+
+/*
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		
+		
+		int N = Integer.parseInt(br.readLine());
 		int F = Integer.parseInt(br.readLine());
 		
 		while(true)
@@ -44,8 +77,5 @@ public class BOJ_Basic_18
 			}
 		}
 		
-	}
-}
-
-// 완전탐색으로 접근했다 00 ~ 99 사이에 나눠지는게 있으면 정답으로 출력한다. 
-// 문제에서 가장 작은 값이라 했음으로 00 부터 탐색한다.
+	
+*/
