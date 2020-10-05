@@ -10,8 +10,8 @@ public class Permutation
         int[] output = new int[n];
         boolean[] visited = new boolean[n];
 
-        perm(arr, output, visited, 0, n, 2);
-        System.out.println();
+       // perm(arr, output, visited, 0, n, 2);
+       // System.out.println();
         permutation(arr, 0, n, 2);
 
 	}
