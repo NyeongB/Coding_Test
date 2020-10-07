@@ -1,4 +1,4 @@
-// Date : 2020.09.13
+// Date : 2020.09.13 , 20.10.07
 // Title : 유기농 배추
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -12,92 +12,84 @@ import java.io.InputStreamReader;
 
 public class BOJ_DFS_04
 {
-
-	static int[][] map;
-	static int[][] visit;
-
-	static int n, m;
-
-	static int[] dx =
-	{ -1, 0, 1, 0 };
-	static int[] dy =
-	{ 0, 1, 0, -1 };
-
-	static int result = 0;
-
+	static int T, N, M, K;	// 테스트 케이스 수, 세로, 가로, 지렁이 수
+	
+	static int [][] map;
+	static int [][] visit;
+	
+	static int [] dx = new int[] {1,-1,0,0};
+	static int [] dy = new int[] {0,0,1,-1};
+	
 	public static void main(String[] args) throws IOException
 	{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-		int num = Integer.parseInt(br.readLine());
-
-		String[] str;
-
-		StringBuffer sb = new StringBuffer();
-
-		while (num-- > 0)
+		T = Integer.parseInt(br.readLine());
+		
+		StringBuilder sb = new StringBuilder();
+		
+		while(T-->0)
 		{
-			str = br.readLine().split(" ");
-			n = Integer.parseInt(str[1]);
-			m = Integer.parseInt(str[0]);
-			int k = Integer.parseInt(str[2]);
-			map = new int[n][m];
-			visit = new int[n][m];
-			result = 0;
-			while (k-- > 0)
+			String [] str = br.readLine().split(" ");
+			
+			M = Integer.parseInt(str[0]);
+			N = Integer.parseInt(str[1]);
+			K = Integer.parseInt(str[2]);
+			
+			map = new int[N][M];
+			visit = new int[N][M];
+			int count = 0;
+			
+			while(K-- >0)
 			{
 				str = br.readLine().split(" ");
-
-				map[Integer.parseInt(str[1])][Integer.parseInt(str[0])] = 1;
+				int a = Integer.parseInt(str[1]);
+				int b = Integer.parseInt(str[0]);
+				map[a][b] = 1;
 			}
-			for (int i = 0; i < map.length; i++)
+			
+			
+			for(int i=0; i<N; i++)
 			{
-				for (int j = 0; j < map[0].length; j++)
+				for(int j=0; j<M; j++)
 				{
-					if (visit[i][j] == 0 && map[i][j] == 1)
+					if(map[i][j]==1 && visit[i][j]==0)
 					{
-						dfs(i, j);
-						result++;
+						dfs(i,j);
+						count++;
 					}
 				}
-
 			}
-			sb.append(result + "\n");
-
+			sb.append(count+"\n");
+			
 		}
-
+		
 		System.out.println(sb.toString());
-
-		/*
-		 * for(int i=0; i<map.length; i++) { for(int j=0; j<map[0].length; j++)
-		 * System.out.print(map[i][j]); System.out.println(); }
-		 */
+		
 	}
-
-	public static void dfs(int i, int j)
+	
+	public static void dfs(int a, int b)
 	{
-		visit[i][j] = 1;	// 방문 처리
-
-		for (int k = 0; k < 4; k++)
+		visit[a][b] = 1;
+		
+		for(int i=0; i<4; i++)
 		{
-			int x = i + dx[k];
-			int y = j + dy[k];
-
-			if (x >= 0 && y >= 0 && x < map.length && y < map[0].length)
+			int x = a + dx[i];
+			int y = b + dy[i];
+			
+			if(x>=0 && y>=0 && x<N && y<M)
 			{
-				if (map[x][y] == 1 && visit[x][y] == 0)
-				{
-					dfs(x, y);
-
+				if(visit[x][y]==0 && map[x][y]==1)
+				{	
+					dfs(x,y);
+				
 				}
 			}
-
 		}
-
+		
 	}
-
+	
+	
 }
 
-// 좌표가 반대인걸 조심해야하는 문제였다
-// 좌표는 상하좌우 만 생각하면 되니깐 비교적 간단한 문제였따
-// 하지만 dfs를 오랜만에 푸니깐 접근법이 바로바로 생각나지 않기때문에 반복 학습이 중요하다.
+// 한번에 성공하고 싶었으나 
+// dy 를 복붙하는 과정에서 a + dy[i]가 되어 테스트 케이스 값이 15, 1 나왔다..
