@@ -1,51 +1,41 @@
-// Date : 2020.09.22
+// Date : 2020.09.22, 20.10.09
 // Title : 최소 힙
 // Author : Choi Cheol Nyeong
 // Language : Java
 // classification : Queue
- 
+
 package BOJ_Queue;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.PriorityQueue;
+import java.util.Queue;
+import java.util.Scanner;
 
 public class BOJ_Queue_05
 {
-	public static void main(String [] agrs) throws IOException
+	public static void main(String[] agrs)
 	{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		Scanner sc = new Scanner(System.in);
+		StringBuilder sb = new StringBuilder();
+		int n = sc.nextInt();
 		
-		int n = Integer.parseInt(br.readLine());
+		Queue<Integer> q = new PriorityQueue<>();
 		
-		PriorityQueue<Integer> q = new PriorityQueue<Integer>();
-		
-		StringBuffer sb = new StringBuffer();
-		
-		while(n-- >0)
+		while(n-->0)
 		{
-			int temp = Integer.parseInt(br.readLine());
-			
-			if(temp == 0)
+			int temp = sc.nextInt();
+			if(temp==0)
 			{
-				if(q.isEmpty())
-				{
-					sb.append("0\n");
-				}
+				if(!q.isEmpty())
+					sb.append(q.poll()+"\n");
 				else
-				{
-					sb.append(q.poll()).append("\n");
-				}
+					sb.append("0\n");
 			}
 			else
-			{
 				q.add(temp);
-			}
+			
 		}
 		
 		System.out.println(sb.toString());
-		
 	}
 }
 
