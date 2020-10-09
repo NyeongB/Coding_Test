@@ -1,8 +1,8 @@
-// Date : 2020.10.08
-// Title : 여행결로
+// Date : 2020.10.08 -> 10.09
+// Title : 여행경로
 // Author : Choi Cheol Nyeong
 // Language : Java
-// Classfication : BFS
+// Classfication : DFS(O) BFS(X)  
 
 package programmers_level_3;
 
@@ -35,101 +35,62 @@ public class Level3_04
 
 class Solution3_04
 {
-
-	class Node
-	{
-		String x, y;
-
-		Node(String x, String y)
-		{
-			this.x = x;
-			this.y = y;
-		}
-	}
-
-	public String[] solution(String[][] tickets)
-	{
-		String[] answer = new String[tickets.length + 1];
-
-		ArrayList<Node> list = new ArrayList<Node>();
-
-		Queue<Node> q = new LinkedList<>();
-
-		ArrayList<Node> list2 = new ArrayList<Node>();
-
-		for (int i = 0; i < tickets.length; i++)
-		{
-			list.add(new Node(tickets[i][0], tickets[i][1]));
-		}
-
-		Collections.sort(list, new Comparator<Node>()
-		{
-
-			@Override
-			public int compare(Node o1, Node o2)
-			{
-				if (o1.x.equals(o2.x))
-				{
-					return o1.y.compareTo(o2.y);
-				}
-
-				return o1.x.compareTo(o2.x);
-			}
-		});
-
-		int[] visit = new int[tickets.length];
-		int index = 0;
-		int cnt = 0;
-		for (int i = 0; i < list.size(); i++)
-		{
-			if (list.get(i).x.equals("ICN"))
-			{
-				if (cnt > 0)
-					break;
-				index = i;
-				for (int j = 0; j < list.size(); j++)
-				{
-					if (list.get(index).y.equals(list.get(j).x))
-					{
-						cnt++;
-					}
-				}
-
-			}
-		}
-
-		q.add(new Node(list.get(index).x, list.get(index).y));
-
-		visit[index] = 1;
-		while (!q.isEmpty())
-		{
-
-			Node temp = q.poll();
-			list2.add(new Node(temp.x, temp.y));
-			for (int i = 0; i < list.size(); i++)
-			{
-				if (temp.y.equals(list.get(i).x) && visit[i] == 0)
-				{
-					System.out.println(i);
-					visit[i] = 1;
-					q.add(new Node(list.get(i).x, list.get(i).y));
-					break;
-				}
-			}
-
-		}
-		System.out.println(list2.size());
-
-		for (int i = 0; i < answer.length - 1; i++)
-		{
-			answer[i] = list2.get(i).x;
-		}
-		answer[answer.length - 1] = list2.get(answer.length - 2).y;
-
-		return answer;
-	}
+    
+    static String[][] tickets;
+    static String route;
+    static int [] visit;
+    ArrayList<String> list = new ArrayList<>();
+    
+    public String[] solution(String[][] tickets) {
+        
+        this.tickets = tickets;
+        
+        
+        for(int i=0; i<tickets.length; i++)
+        {
+            visit = new int[tickets.length];
+            String start = tickets[i][0];
+            String end = tickets[i][1];
+            
+            if(start.equals("ICN"))
+            {
+                route = start + ",";
+                visit[i] = 1;
+                dfs(end,1);
+            }
+            
+        }
+        Collections.sort(list);
+        String[] answer = list.get(0).split(",");
+        return answer;
+    }
+    
+    public void dfs(String end, int count)
+    {
+        route += end + ",";
+        if(count == tickets.length)
+        {
+            list.add(route);
+            return;
+        }
+        
+        for(int i=0; i<tickets.length; i++)
+        {
+            if(tickets[i][0].equals(end) && visit[i] ==0)
+            {
+                visit[i] = 1;
+                dfs(tickets[i][1],count + 1);
+                visit[i] = 0;
+                
+                route = route.substring(0, route.length() - 4);
+                //지금까지의 경로 외에 중간에 다른 경로를 갈 수 있기 때문에 dfs 호출이 종료되면 visit과 route에서 현재 방문 위치를 빼줘야 한다.
+            }
+        }
+    }
 }
 
-// 너무나도 하드 코딩인거같다..
-// 75.0 / 100.0
-// 다음에 블로그 보고 참고하면서 한다.
+// https://geehye.github.io/programmers-dfs-bfs-04/#
+// 참고자료 정말 갓 코드인것같다.
+// 내가 고민했던 사전순으로 먼저 방문하는것을
+// 모든 경로를 리스트에 넣고 오름차순 정렬하고 index 0 을 가져오는것으로 해결하였다.
+// 최단경로 문제는 dfs로 고민한다.
