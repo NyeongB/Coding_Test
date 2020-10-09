@@ -1,4 +1,4 @@
-// Date : 2020.08.30
+// Date : 2020.08.30, 20.10.09
 // Title : 요세푸스 문제
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -6,44 +6,48 @@
  
 package BOJ_Queue;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.Queue;
 
 public class BOJ_Queue_02
 {
-	public static void main(String [] agrs)
+	public static void main(String [] agrs) throws IOException
 	{
-		Scanner sc = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		String [] str = sc.nextLine().split(" ");
+		String [] str = br.readLine().split(" ");
 		
-		int N = Integer.parseInt(str[0]);
-		int K = Integer.parseInt(str[1]);
+		int n = Integer.parseInt(str[0]);
+		int k = Integer.parseInt(str[1]);
 		
-		int [] answer = new int[N];
-		int count = 0;
+		int [] arr = new int[n];
 		
-		LinkedList<Integer> queue = new LinkedList<Integer>();
+		Queue<Integer> q = new LinkedList<>();
 		
-		for(int i=1; i<=N; i++)
+		for(int i=1; i<=n; i++)
+			q.add(i);
+		
+		int index = 0;
+		
+		while(!q.isEmpty())
 		{
-			queue.add(i);
-		}
-		
-		while(!queue.isEmpty())
-		{
-			for(int i=0; i<K-1; i++)
+			for(int i=0; i<k-1; i++)
 			{
-				int temp = queue.pop();
-				queue.add(temp);// 선입선출을 이용함 추출한다음 다시 넣음 → 우선순위가 낮아짐 
+				int temp = q.poll();
+				q.add(temp);
 			}
-			answer[count++] = queue.pop(); // K번째
+			arr[index++] = q.poll();
 		}
 		
-		// 정답 출력을 위한 
-		System.out.print("<"+answer[0]);
-		for(int i=1; i<N; i++)
-			System.out.print(", "+answer[i]);
+		System.out.print("<"+arr[0]);
+		
+		for(int i=1; i<n; i++)
+		{
+			System.out.print(", "+arr[i]);
+		}
 		
 		System.out.print(">");
 		
