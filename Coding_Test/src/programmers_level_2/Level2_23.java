@@ -1,11 +1,9 @@
-// Date : 2020.08.22
-// Title : 큰 수 만들기
+// Date : 2020.10.13
+// Title : 점프와 순간 이동
 // Author : Choi Cheol Nyeong
  
 package programmers_level_2;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Level2_23
 {
