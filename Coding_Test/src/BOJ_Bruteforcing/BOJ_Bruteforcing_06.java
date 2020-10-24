@@ -1,4 +1,4 @@
-// Date : 2020.10.23
+// Date : 2020.10.24
 // Title : 리모컨
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -9,9 +9,70 @@ package BOJ_Bruteforcing;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashSet;
 
+
+public class BOJ_Bruteforcing_06
+{
+	
+	public static void main(String[] args) throws IOException
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		int num = Integer.parseInt(br.readLine());
+
+		int count = Integer.parseInt(br.readLine());
+
+		int min =  Math.abs(num - 100);
+
+		HashSet<Integer> hs = new HashSet<Integer>();
+
+		String[] str = br.readLine().split(" ");
+
+		for (int i = 0; i < str.length; i++)
+		{
+			hs.add(Integer.parseInt(str[i]));
+		}
+
+		// 전체 브루트 포스
+		for (int i = 0; i <= 500000; i++)
+		{
+			String temp = "" + i;
+			int len = temp.length();
+			boolean flag = true;
+
+			for (int j = 0; j < temp.length(); j++)
+			{
+				int temp1 = temp.charAt(j) - '0';
+				// System.out.println(temp1);
+				if (hs.contains(temp1))
+				{
+					flag = false;
+					break;
+				}
+			}
+
+			if (flag)
+			{
+				if (min > Math.abs(i - num) + len)	// 버튼 누른게 최소이면
+				{
+					min = Math.abs(i - num) + len;
+				}
+
+			}
+
+		}
+		
+
+		System.out.println(min);
+
+	}
+
+}
+
+
+
+/*
 public class BOJ_Bruteforcing_06
 {
 	
@@ -77,10 +138,9 @@ public class BOJ_Bruteforcing_06
 				number += n;
 			}
 			int num = Integer.parseInt(number);
-			/*
-			 * System.out.println("len:"+len+"num:"+num); if(Math.abs(N-num)+len<min) {
-			 * System.out.println(Math.abs(N-num)+len); }
-			 */
+			  System.out.println("len:"+len+"num:"+num); if(Math.abs(N-num)+len<min) {
+			  System.out.println(Math.abs(N-num)+len); }
+			 
 			min = Math.min(Math.abs(N-num)+len,min);
 			return;
 		}
@@ -93,7 +153,7 @@ public class BOJ_Bruteforcing_06
 		}
 	}
 }
-
+*/
 // 속상하다 
 /*
 
