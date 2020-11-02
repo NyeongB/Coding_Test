@@ -1,5 +1,5 @@
 // Date : 2020.11.02
-// Title : 맥주마시면서 걸어가기
+// Title : DSRL
 // Author : Choi Cheol Nyeong
 // Language : Java
 // Classfication : BFS
