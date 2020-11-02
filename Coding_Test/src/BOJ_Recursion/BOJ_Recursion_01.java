@@ -1,4 +1,4 @@
-// Date : 2020.10.09
+// Date : 2020.10.09, 2020.11.02
 // Title : 별찍기 10
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -6,11 +6,12 @@
 
 package BOJ_Recursion;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BOJ_Recursion_01
 {
-	static char [][] map = new char[6561][6561];
+	static char [][] map;
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
@@ -19,21 +20,22 @@ public class BOJ_Recursion_01
 		
 		sc.close();
 		
+		map = new char[n][n];
+		
+		for(int i=0;i<map.length;i++) {
+			Arrays.fill(map[i],' ');
+		}
+		
 		solve(n,0,0);
 		
-		for(int i=0; i<n; i++)
-		{
-			for(int j=0; j<n; j++)
-			{
-				System.out.print(map[i][j]);
-			}
-			System.out.println();
+		for(int i=0;i<map.length;i++) {
+			System.out.println(map[i]);
 		}
 	}
 	
 	static void solve(int n, int x, int y)
 	{
-		if(n==1)
+		if(n == 1)
 		{
 			map[x][y] = '*';
 			return;
@@ -45,13 +47,12 @@ public class BOJ_Recursion_01
 		{
 			for(int j=0; j<3; j++)
 			{
-				if(j==1&&i==1)
+				if(i == 1 && j == 1)
 					continue;
 				
-				solve(div, x + (div*i), y + (div*j));
+				solve(div, (i*div) + x, (j*div) + y);
 			}
 		}
-		
 		
 	}
 }
