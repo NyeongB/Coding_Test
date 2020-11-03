@@ -1,4 +1,4 @@
-// Date : 2020.08.22
+// Date : 2020.08.22, 20.11.03
 // Title : 124 나라의 숫자
 // Author : Choi Cheol Nyeong
  
@@ -16,23 +16,23 @@ public class Level2_02
 }
 
 class Solution2_2 {
-    public String solution(int n) {
+public String solution(int n) {
+        
+        String [] arr = new String[]{"4", "1", "2"};	// String 과 int 결합에서 시간초과 나서
+        
         String answer = "";
         
-        while(n > 0)
+        while(n>0)
         {
-          int  r = n % 3;
-           n = n / 3;
-            
-            if(r==0)
+            int r = n % 3;
+            n = n / 3;
+            if(r == 0)
             {
-                r = 4;
                 n--;
             }
             
-            answer = r + answer;
+            answer = arr[r] + answer;
         }
-        
         return answer;
     }
 }
