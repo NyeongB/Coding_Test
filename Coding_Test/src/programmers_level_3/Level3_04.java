@@ -1,4 +1,4 @@
-// Date : 2020.10.08 -> 10.09
+// Date : 2020.10.08 -> 10.09, 20.11.06
 // Title : 여행경로
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -81,6 +81,61 @@ class Solution3_04
                 visit[i] = 1;
                 dfs(tickets[i][1],count + 1);
                 visit[i] = 0;
+                route = route.substring(0, route.length() - 4);
+            }
+        }
+    }
+}
+
+/*
+class Solution3_04
+{
+    
+    static String[][] tickets;
+    static String route;
+    static int [] visit;
+    ArrayList<String> list = new ArrayList<>();
+    
+    public String[] solution(String[][] tickets) {
+        
+        this.tickets = tickets;
+        
+        
+        for(int i=0; i<tickets.length; i++)
+        {
+            visit = new int[tickets.length];
+            String start = tickets[i][0];
+            String end = tickets[i][1];
+            
+            if(start.equals("ICN"))
+            {
+                route = start + ",";
+                visit[i] = 1;
+                dfs(end,1);
+            }
+            
+        }
+        Collections.sort(list);
+        String[] answer = list.get(0).split(",");
+        return answer;
+    }
+    
+    public void dfs(String end, int count)
+    {
+        route += end + ",";
+        if(count == tickets.length)
+        {
+            list.add(route);
+            return;
+        }
+        
+        for(int i=0; i<tickets.length; i++)
+        {
+            if(tickets[i][0].equals(end) && visit[i] ==0)
+            {
+                visit[i] = 1;
+                dfs(tickets[i][1],count + 1);
+                visit[i] = 0;
                 
                 route = route.substring(0, route.length() - 4);
                 //지금까지의 경로 외에 중간에 다른 경로를 갈 수 있기 때문에 dfs 호출이 종료되면 visit과 route에서 현재 방문 위치를 빼줘야 한다.
@@ -88,7 +143,7 @@ class Solution3_04
         }
     }
 }
-
+*/
 // https://geehye.github.io/programmers-dfs-bfs-04/#
 // 참고자료 정말 갓 코드인것같다.
 // 내가 고민했던 사전순으로 먼저 방문하는것을
