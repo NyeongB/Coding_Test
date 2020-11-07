@@ -1,4 +1,4 @@
-// Date : 2020.08.25
+// Date : 2020.08.25, 20.11.07
 // Title : x만큼 간격이 있는 n개의 숫자
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -21,17 +21,16 @@ public class Level1_25
 }
 
 class Solution1_25 {
-    public long[] solution(int x, int n) {
+	public long[] solution(int x, int n) {
         long[] answer = new long[n];
         
-        for(int i=0; i<n; i++)
+        answer[0] = x;
+        for(int i=1; i<n; i++)
         {
-            if(i==0)
-                answer[i] = x;
-            else
-                answer[i] = answer[i-1] + x;
+            answer[i] = answer[i-1] + x;
         }
         
         return answer;
     }
 }
+// DP 로 변경 
