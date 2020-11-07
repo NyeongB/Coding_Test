@@ -1,8 +1,8 @@
-// Date : 2020.11.04
-// Title : 단속카메라
+// Date : 2020.11.07
+// Title : 하노이의 탑
 // Author : Choi Cheol Nyeong
 // Language : Java
-// Classfication : 그리디
+// Classfication : 재귀
 
 package programmers_level_3;
 
