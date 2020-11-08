@@ -1,4 +1,4 @@
-// Date : 2020.08.25
+// Date : 2020.08.25, 20.11.08
 // Title : 하샤드 수
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -17,16 +17,21 @@ public class Level1_30
 }
 
 class Solution1_30 {
-    public boolean solution(int x) {
-        boolean answer = true;
-        String str = "" + x;
-        int num = 0;
-        for(int i=0; i<str.length(); i++)
-            num += str.charAt(i) - '0';
-        
-        if(x%num!=0)
-            answer = false;
-        
-        return answer;
-    }
-}
+	   public boolean solution(int x) {
+	        boolean answer = true;
+	        
+	        int num = x;
+	        int total = 0;
+	        
+	        while(x>0)
+	        {
+	            total += x%10;
+	            x /=10;
+	        }
+	        
+	        if((num%total)!=0)
+	            answer = false;
+	        
+	        return answer;
+	    }
+	}
