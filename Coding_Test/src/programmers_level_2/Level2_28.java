@@ -21,66 +21,34 @@ public class Level2_28
 
 class Solution2_28
 {
-	  public int solution(String name) {
-	        int answer = 0;
-	        int len = name.length();
-	        String str ="";
-	        for(int i=0; i<len; i++)
-	            str += "A";
-	        
-	        int count = 0;
-	        int i = 0; // 현재 인덱스
-	        
-	        while(true)
-	        {
-	            
-	            if(name.charAt(i) == 'A')
-	                continue;
-	            
-	            char temp1 = str.charAt(i);     // A인값
-	            char temp2 = name.charAt(i);    // 목표값
-	            
-	            int alpha1 = temp2 - temp1; // A - J
-	            int alpha2 = 'Z' + 1 - temp2; // Z + 1 - J
-	            
-	            if(alpha1<=alpha2)
-	            {
-	                count += alpha1;
-	            }
-	            else
-	                count += alpha2;
-	            
-	            StringBuilder sb = new StringBuilder(str);
-	            sb.setCharAt(i,temp2);
-	            str = sb.toString();
-	            //System.out.println(str);
-	            if(str.equals(name))
-	                break;
-	            
-	            
-	            
-	            
-	            // 커서 이동 효율 좋은 쪽으로
-	            int index = i+1; // 다음 커서
-	            while(name.charAt(index)=='A')
-	                index++;
-	            
-	            int cursor1 = index - i;
-	            int cursor2 = len + i - index;
-	            //System.out.println(cursor2);
-	            if(cursor1<=cursor2)
-	                count += cursor1;
-	            else
-	                count += cursor2;
-	            
-	            i = index;
-	            
-	            
-	        }
-	        
-	        
-	        return count;
-	    }
-	}
+    public int solution(String name) {
+        
+		int len = name.length();
+		int min_move = len-1; // A가 안나왔을때 최소 이동횟수
 
-// 이거 원인 꼭 발혀낸다 4,7,8  11(시간초과)
+		int answer = 0 ;
+		
+		for(int i=0; i<len; ++i) {
+            
+            // 문자 변형 카운트
+			if(name.charAt(i)<='M') {
+				answer += name.charAt(i)-'A';
+			}
+			else {
+				answer +='Z'-name.charAt(i)+1;
+			}
+			
+			// 최소 이동거리 
+			int next = i+1;
+			while(next<len && name.charAt(next)=='A') {
+				++next;
+			}
+			min_move = Math.min(min_move,i+len-next+Math.min(i,len-next));
+			
+			
+		}
+		answer += min_move;
+        
+        return answer;
+    }
+}
