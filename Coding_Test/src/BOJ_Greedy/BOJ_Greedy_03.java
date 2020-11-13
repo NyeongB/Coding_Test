@@ -1,4 +1,4 @@
-// Date : 2020.08.30
+// Date : 2020.08.30, 20.11.13
 // Title : 잃어버린 괄호
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -12,6 +12,34 @@ import java.io.InputStreamReader;
 
 public class BOJ_Greedy_03
 {
+	public static void main(String[] agrs) throws IOException
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		String[] str = br.readLine().split("\\-");
+
+		// 첫 번째는 무조건 + , 나머지는 무조건 -
+
+		int total = 0;
+
+		String[] temp = str[0].split("\\+");
+
+		for (String s : temp)
+			total += Integer.parseInt(s);
+
+		for (int i = 1; i < str.length; i++)
+		{
+			temp = str[i].split("\\+");
+
+			for (String s : temp)
+				total -= Integer.parseInt(s);
+
+		}
+
+		System.out.println(total);
+
+}	// 다시 풀때는 따로 메소드를 빼서 plus 부분의 처리를 하지않고 한꺼번에 했다.
+	/*
 	public static void main(String[] args) throws IOException
 	{
 		//55-50+40 min -> -35
@@ -47,6 +75,7 @@ public class BOJ_Greedy_03
 		
 		return result;
 	}
+	*/
 	
 }
 
