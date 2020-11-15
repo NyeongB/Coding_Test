@@ -1,4 +1,4 @@
-// Date : 2020.09.10
+// Date : 2020.09.10, 20.11.15
 // Title : 다음 큰 숫자
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -19,6 +19,55 @@ public class Level2_09
 
 class Solution2_09
 {
+	 public int solution(int n) {
+	        int answer = n;
+	        int count1 = getBinaryCount(n); 
+	        while(true)
+	        {
+	            int count2 = getBinaryCount(++answer);  // 하나씩 늘려가면서 카운트가 맞는지 확인
+	            
+	            if(count1 == count2)    
+	                break;
+	        }
+	        
+	        return answer;
+	    }
+	    
+	    public int getBinaryCount(int num)
+	    {
+	        int result = 0;
+	        
+	        String str = "";
+			/*
+	        int r = 0;
+			
+			while(num != 0) {
+				r = num % 2;
+				
+				if(num % 2 < 10) {
+					str = r + str;
+				} else {
+					
+					str = (char)(r + 55) + str; 
+				}
+				
+				num /= 2;
+			}   // 2진법으로 변환후
+	        */
+	        str = Integer.toBinaryString(num);
+	        //System.out.println(str);
+	        
+	        for(int i=0; i<str.length(); i++)
+	        {
+	            if(str.charAt(i) == '1' )   // 1의 갯수 세기
+	                result++;
+	        }
+	        
+	        return result;
+	    }
+// 124나라에서 했던 알고리즘을 사용해서 2진법으로 만들게되면 속도가 너무차이나고 시간초과가 계속난다
+	    // 어쩔수없이 toBinaryString을 사용하는데 이방법밖에없는지는 찾아봐야겠다.
+	/*
 	public int solution(int n)
 	{
 		int answer = 0;
@@ -53,4 +102,5 @@ class Solution2_09
 		}
 		return answer;
 	}
+	*/
 }
