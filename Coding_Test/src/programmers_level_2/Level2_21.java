@@ -1,4 +1,4 @@
-// Date : 2020.10.07
+// Date : 2020.10.07, 20.11.17
 // Title : 주식 가격
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -19,6 +19,32 @@ public class Level2_21
 
 }
 class Solution2_21 {
+	
+	public int[] solution(int[] prices) {
+        
+        int len = prices.length;
+        int[] answer = new int[len];
+        
+        for(int i=0; i<len; i++)
+        {
+            int s = 0;
+            
+            for(int j=i+1; j<len; j++)
+            {
+                s++;
+                if(prices[i] > prices[j])
+                    break;
+            }
+            
+            answer[i] = s;
+            
+        }
+        
+        return answer;
+    }
+	
+	
+	/*
     public int[] solution(int[] prices) {
         int[] answer = new int[prices.length];
         
@@ -36,6 +62,7 @@ class Solution2_21 {
         
         return answer;
     }
+    */
 }
 
 // 스택으로 안푸는 방식으로 접근하였다.
