@@ -1,4 +1,4 @@
-// Date : 2020.09.25
+// Date : 2020.09.25, 20.11.22
 // Title : 스킬트리
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -19,6 +19,46 @@ public class Level2_16
 }
 
 class Solution2_16 {
+	 public int solution(String skill, String[] skill_trees) {
+	        int answer = 0;
+	        
+	        ArrayList<Character> skill_list = new ArrayList<>();    // 스킬이 있는지 없는지 체크할려고 
+	        
+	        for(int i=0; i<skill.length(); i++)
+	        {
+	            skill_list.add(skill.charAt(i));
+	        }
+	        
+	        
+	        for(int i=0; i<skill_trees.length; i++)
+	        {
+	            String s = skill_trees[i];
+	            int index = 0;
+	            boolean flag = true;
+	            
+	            for(int j=0; j<s.length(); j++)
+	            {
+	                char temp = s.charAt(j);
+	                
+	                if(skill_list.indexOf(temp)>-1) // 있는 스킬이라면 아니면 넘김 
+	                {
+	                    
+	                    if(skill_list.get(index) != temp)   // 여기서 걸리면 앞스킬 하기도전에 뒷스킬로 한거임 
+	                        flag = false;
+	                    else
+	                        index++;
+	                    
+	                }
+	            }
+	            
+	            if(flag)
+	                answer++;
+	            
+	        }
+	        
+	        return answer;
+	    }
+	/*
     public int solution(String skill, String[] skill_trees) {
         int answer = 0;
 
@@ -72,6 +112,7 @@ class Solution2_16 {
 
         return result;
     }
+    */
 }
 
 /*	처음 도전 솔루션 64.3 / 100
