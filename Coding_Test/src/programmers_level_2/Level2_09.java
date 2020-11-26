@@ -19,6 +19,43 @@ public class Level2_09
 
 class Solution2_09
 {
+	
+	public int solution(int n) {
+        int answer = n;
+        
+        String str = Integer.toBinaryString(n);
+        
+        
+        
+        int count = getCount(str);
+        
+        
+        while(true)
+        {
+            answer++;
+            if(count == getCount(Integer.toBinaryString(answer)))
+                break;
+        }
+       
+        
+        return answer;
+    }
+    
+    public int getCount(String str)
+    {
+        int result = 0;
+        
+        for(int i=0; i<str.length(); i++)
+        {
+            if(str.charAt(i)=='1')
+                result++;
+        }
+        
+        return result;
+    }
+	
+	/*
+	
 	 public int solution(int n) {
 	        int answer = n;
 	        int count1 = getBinaryCount(n); 
@@ -53,7 +90,7 @@ class Solution2_09
 				
 				num /= 2;
 			}   // 2진법으로 변환후
-	        */
+	        
 	        str = Integer.toBinaryString(num);
 	        //System.out.println(str);
 	        
@@ -65,6 +102,7 @@ class Solution2_09
 	        
 	        return result;
 	    }
+		*/
 // 124나라에서 했던 알고리즘을 사용해서 2진법으로 만들게되면 속도가 너무차이나고 시간초과가 계속난다
 	    // 어쩔수없이 toBinaryString을 사용하는데 이방법밖에없는지는 찾아봐야겠다.
 	/*
