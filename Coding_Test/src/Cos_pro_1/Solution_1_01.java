@@ -5,7 +5,7 @@
 
 package Cos_pro_1;
 
-class Solution_001
+class Solution_1_01
 {
 	
 	public int solution(int n)
@@ -54,7 +54,7 @@ class Solution_001
 	public static void main(String[] args)
 	{
 
-		Solution_001 sol = new Solution_001();
+		Solution_1_01 sol = new Solution_1_01();
 		int ret = sol.solution(3);
 
 		// Press Run button to receive output.
