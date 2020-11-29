@@ -1,4 +1,4 @@
-// Date : 2020.09.08, 20.11.11
+// Date : 2020.09.08, 20.11.11, 20.11.29
 // Title : 올바른 괄호
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -26,35 +26,35 @@ public class Level2_07
 
 class Solution2_07
 {
-	boolean solution(String s)
-	{
-		boolean answer = true;
+	  boolean solution(String s) {
+	        boolean answer = true;
 
-		Stack<Character> st = new Stack<>();
+	        Stack<Integer> st = new Stack<>();		// 아무거나 들어있는지 없는지 유무라 Integer로 해봤다
+	        
+	        char [] arr = s.toCharArray();
+	        
+	        for(int i=0; i<arr.length; i++)
+	        {
+	            if(arr[i] =='(')
+	                st.push(0);
+	            else
+	            {
+	                
+	                
+	                if(st.isEmpty())
+	                {
+	                    answer = false;
+	                    break;
+	                }
+	                
+	                if(arr[i]==')')
+	                    st.pop();
+	            }
+	        }
+	        
+	        if(!st.isEmpty())
+	            answer = false;
 
-		for (int i = 0; i < s.length(); i++)
-		{
-			int temp = s.charAt(i);
-
-			if (temp == '(')
-				st.push('(');
-			else
-			{
-				if (st.isEmpty())
-				{
-					return false;
-				} 
-				else
-				{
-					st.pop();
-				}
-			}
-
-		}
-
-		if (!st.isEmpty())
-			return false;
-
-		return answer;
-	}
+	        return answer;
+	    }
 }
