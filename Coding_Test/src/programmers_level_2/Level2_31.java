@@ -1,4 +1,4 @@
-// Date : 2020.11.16
+// Date : 2020.11.16, 20.11.30
 // Title : 가장 큰 수
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -22,38 +22,33 @@ public class Level2_31
 
 class Solution2_31
 {
-	public String solution(int[] numbers)
-	{
-		String answer = "";
-
-		int len = numbers.length;
-
-		String[] str = new String[len];
-
-		for (int i = 0; i < len; i++)
-		{
-			// str[i] = "" + numbers[i];
-			str[i] = String.valueOf(numbers[i]);
-		}
-
-		Arrays.sort(str, new Comparator<String>()
-		{
-
-			public int compare(String a, String b)
-			{
-				// System.out.println(a+" "+b);
-				// System.out.println((b+a).compareTo(a+b));
-				return (b + a).compareTo(a + b);		// 양수면 스왑
-			}
-
-		});
-
-		if (str[0].charAt(0) == '0')	// 0이 2개면 "00"으로 출력될 수 도있어서
-			return "0";
-
-		for (String s : str)
-			answer += s;
-
-		return answer;
-	}
+	 public String solution(int[] numbers) {
+	        String answer = "";
+	        int len = numbers.length;
+	        String [] str_numbers = new String[len];
+	        
+	        for(int i=0; i<len; i++)
+	        {
+	            //str_numbers[i] = "" + numbers[i];
+	        	str_numbers[i] = String.valueOf(numbers[i]);	// 기존 거랑 이거빼고 완벽하게 일치함 
+	        }
+	        
+	        Arrays.sort(str_numbers,new Comparator<String>(){
+	           @Override
+	            public int compare(String s1, String s2)
+	            {
+	                return (s2+s1).compareTo(s1+s2);	// 2,3 이있을때 32.compreTo(23) 이렇게 됨 그래서 양수라서 스왑
+	            }
+	        });
+	        
+	        // 이거 안해줘서 틀림
+	        if(str_numbers[0].equals("0"))
+	            return "0";
+	        
+	        
+	        for(String s : str_numbers)
+	            answer += s;
+	        
+	        return answer;
+	    }
 }
