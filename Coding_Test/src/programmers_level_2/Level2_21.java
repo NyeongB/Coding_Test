@@ -1,4 +1,4 @@
-// Date : 2020.10.07, 20.11.17
+// Date : 2020.10.07, 20.11.17, 20.12.03
 // Title : 주식 가격
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -20,25 +20,26 @@ public class Level2_21
 }
 class Solution2_21 {
 	
-	public int[] solution(int[] prices) {
+public int[] solution(int[] prices) {
         
         int len = prices.length;
         int[] answer = new int[len];
         
+        
         for(int i=0; i<len; i++)
         {
-            int s = 0;
+            int time = 0;
             
             for(int j=i+1; j<len; j++)
             {
-                s++;
-                if(prices[i] > prices[j])
+                time++;
+                if(prices[i]>prices[j])
                     break;
             }
             
-            answer[i] = s;
-            
+            answer[i] = time;
         }
+        
         
         return answer;
     }
