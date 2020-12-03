@@ -36,52 +36,60 @@ public class Level3_04
 class Solution3_04
 {
     
-    static String[][] tickets;
-    static String route;
-    static int [] visit;
+   
+    
+    String route;
+    boolean [] visited;
+    String[][] tickets;
     ArrayList<String> list = new ArrayList<>();
     
     public String[] solution(String[][] tickets) {
-        
+        String[] answer = new String[tickets.length+1];
         this.tickets = tickets;
         
         
         for(int i=0; i<tickets.length; i++)
         {
-            visit = new int[tickets.length];
-            String start = tickets[i][0];
-            String end = tickets[i][1];
-            
-            if(start.equals("ICN"))
+            if(tickets[i][0].equals("ICN"))
             {
-                route = start + ",";
-                visit[i] = 1;
-                dfs(end,1);
+                visited = new boolean[tickets.length];
+                route = "ICN";
+                visited[i] = true;
+                dfs(1, tickets.length, tickets[i][1]);
+                
             }
-            
         }
+        
         Collections.sort(list);
-        String[] answer = list.get(0).split(",");
+        
+        String [] str = list.get(0).split(",");
+        
+        int index = 0;
+        for(String s : str)
+            answer[index++] = s;
+        
         return answer;
     }
     
-    public void dfs(String end, int count)
+    
+    public void dfs(int count, int max_count, String start)
     {
-        route += end + ",";
-        if(count == tickets.length)
+        route += "," + start; 
+        if(count == max_count)
         {
-            list.add(route);
+            
+        list.add(route);
             return;
         }
         
-        for(int i=0; i<tickets.length; i++)
+        for(int i=0; i<max_count; i++)
         {
-            if(tickets[i][0].equals(end) && visit[i] ==0)
+            if(!visited[i]&&tickets[i][0].equals(start))
             {
-                visit[i] = 1;
-                dfs(tickets[i][1],count + 1);
-                visit[i] = 0;
-                route = route.substring(0, route.length() - 4);
+                visited[i] = true;
+                dfs(count +1, max_count, tickets[i][1]);
+                visited[i] = false;
+                route = route.substring(0,route.length()-4);
             }
         }
     }
