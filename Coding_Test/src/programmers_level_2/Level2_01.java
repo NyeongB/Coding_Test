@@ -37,6 +37,7 @@ class Solution
 			for (int j = s + 1; j < len - r_len + 1 + i; j++)
 			{
 				char num = number.charAt(j);
+				
 				if (max < num)
 				{
 					max = num;
