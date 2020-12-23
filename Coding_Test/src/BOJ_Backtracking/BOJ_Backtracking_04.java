@@ -1,4 +1,4 @@
-// Date : 2020.10.27
+// Date : 2020.10.27, 20.12.23
 // Title : 로또
 // Author : Choi Cheol Nyeong
 // Language : Java
@@ -12,78 +12,76 @@ import java.io.InputStreamReader;
 public class BOJ_Backtracking_04
 {
 	
-	static StringBuilder sb = new StringBuilder();
-	
-	static int [] arr;		// 로또 수들 기록
-	static int [] result = new int[6];	// 결과값 저장
-	static int [] visit;	// 방문기록
 	
 	public static void main(String[] args) throws IOException
 	{
-		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringBuilder sb = new StringBuilder();
 		
-		
-		String [] str;
 		
 		while(true)
 		{
-			str = br.readLine().split(" ");
+			String [] str = br.readLine().split(" ");
 			
 			int n = Integer.parseInt(str[0]);
 			
 			if(n == 0)
 				break;
 			
-			visit = new int[n];
-			arr = new int[n];
+
+			int [] result = new int[6];
+			int [] arr = new int[n];
+			boolean [] visited = new boolean[n];
 			
-			for(int i=1; i<str.length; i++)	// 초기화 작업
+			for(int i=1; i<n+1; i++)
 			{
 				arr[i-1] = Integer.parseInt(str[i]);
 			}
 			
-			dfs(0,0);
+			
+			
+			
+			dfs(0,0, result, arr, visited, sb);
+			
 			sb.append("\n");
-			
-			
 			
 			
 		}
 		
+		
+		
 		System.out.println(sb.toString());
 	}
 	
-	
-	// dfs
-	public static void dfs(int index, int depth)
+	public static void dfs(int index, int depth, int [] result, int [] arr, boolean [] visited, StringBuilder sb)
 	{
-		if(depth == 6)	// 6개만 출력
+		if(depth == 6)
 		{
 			for(int i=0; i<6; i++)
 			{
 				sb.append(result[i]+" ");
 			}
 			sb.append("\n");
-			
-			return ;
+			return;
 		}
 		
 		
-		for(int i=index; i<arr.length; i++)
+		for(int i = index; i<arr.length; i++)
 		{
-			if(visit[i]==0)
+			if(!visited[i])
 			{
-				visit[i] = 1;
+				visited[i] = true;
 				result[depth] = arr[i];
-				dfs(i, depth + 1);
-				visit[i] = 0;
+				dfs(i,depth + 1, result, arr, visited,sb);
+				
+				visited[i] = false;
 			}
 		}
 		
 		
+		
 	}
-	
 }
 
 // 조합느낌으로 접근했다.
+// 2달만에 다시 풀어봤는데 디버깅이 쉽지않았다.
