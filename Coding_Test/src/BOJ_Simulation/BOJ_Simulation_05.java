@@ -15,7 +15,7 @@ public class BOJ_Simulation_05
 {
 	public static void main(String[] args) throws IOException
 	{
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));	
 
 		ArrayList<Integer> list1 = new ArrayList<>();
 		ArrayList<Integer> list2 = new ArrayList<>();
