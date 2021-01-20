@@ -5,3 +5,5 @@
   <li>백준</li>
   <li>구름</li>
 </ul>
+2020.08.20 ~ 2021.01.11
+-> https://github.com/NyeongB/Coding_Test_Python
